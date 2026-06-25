@@ -1,165 +1,171 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Snowflake, Flame, Wind, Wrench, Zap, Building2, ThumbsUp, ArrowRight } from "lucide-react";
+import { Snowflake, Flame, Wind, Wrench, Zap, Building2, ArrowRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const services = [
   {
     icon: Snowflake,
     title: "AC Installation & Replacement",
-    desc: "Top-brand air conditioning systems installed with precision. We size your system correctly for maximum efficiency and comfort.",
+    desc: "Top-brand systems sized correctly for your space — maximum comfort, minimum energy bills.",
     tags: ["Central AC", "Mini-Split", "Ductless"],
-    color: "sky",
+    accent: "sky",
   },
   {
     icon: Flame,
     title: "Heating Systems",
-    desc: "Furnace installation, heat pump systems, and radiant heating. Stay warm all winter with reliable, energy-efficient heating.",
+    desc: "Furnace installs, heat pumps, and boilers. Stay warm all winter with efficient, reliable heating.",
     tags: ["Furnace", "Heat Pump", "Boiler"],
-    color: "orange",
+    accent: "orange",
   },
   {
     icon: Wind,
     title: "Ventilation & Air Quality",
-    desc: "Improve indoor air quality with proper ventilation, air purification, and humidity control systems for healthier living.",
+    desc: "Breathe cleaner air with proper ventilation, purification, and humidity control systems.",
     tags: ["Air Purifiers", "Humidifiers", "ERV/HRV"],
-    color: "sky",
+    accent: "sky",
   },
   {
     icon: Wrench,
-    title: "HVAC Repair & Maintenance",
-    desc: "Fast, reliable repairs for all makes and models. Preventive maintenance plans that extend equipment life and prevent breakdowns.",
+    title: "Repair & Maintenance",
+    desc: "Fast diagnostics and repairs on all brands. Preventive tune-ups that extend equipment life.",
     tags: ["All Brands", "Tune-Ups", "Diagnostics"],
-    color: "orange",
+    accent: "orange",
   },
   {
     icon: Zap,
-    title: "Emergency Service",
-    desc: "HVAC breakdown at 2am? We're there. Our 24/7 emergency team responds fast so you're never left uncomfortable for long.",
-    tags: ["24/7", "Same Day", "Fast Response"],
-    color: "sky",
+    title: "24/7 Emergency Service",
+    desc: "HVAC down at 2am? We pick up. Our emergency team gets there fast so you're never stuck.",
+    tags: ["24/7 Response", "Same Day", "All Hours"],
+    accent: "sky",
     featured: true,
   },
   {
     icon: Building2,
     title: "Commercial HVAC",
-    desc: "Scalable HVAC solutions for offices, retail, restaurants, and industrial facilities. Minimize downtime with our commercial expertise.",
+    desc: "Scalable solutions for offices, restaurants, and retail. Minimize downtime with expert commercial service.",
     tags: ["Offices", "Retail", "Restaurants"],
-    color: "orange",
+    accent: "orange",
   },
 ];
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
 export default function Services() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="services" className="py-28 px-6 relative">
+    <section id="services" className="py-28 px-5 relative bg-[#050b18]">
+      {/* Subtle section separator glow */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-500/20 to-transparent" />
+
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center text-center mb-14 gap-4"
         >
-          <span className="inline-block px-3 py-1 rounded-full border border-sky-500/20 bg-sky-500/10 text-sky-400 text-xs font-bold uppercase tracking-widest mb-4">
-            Our Services
-          </span>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
+          <Badge variant="default">Our Services</Badge>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white max-w-2xl">
             Complete HVAC Solutions{" "}
-            <span className="gradient-text">Under One Roof</span>
+            <span className="text-sky-400">Under One Roof</span>
           </h2>
-          <p className="text-[#94a3b8] text-lg max-w-xl mx-auto">
-            From new installations to emergency repairs — JNC Mechanical Services handles it all for residential and commercial clients.
+          <p className="text-slate-400 text-base max-w-lg leading-relaxed">
+            From brand-new installs to urgent emergency repairs — JNC handles it all for homes and businesses across Southern California.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate={inView ? "show" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-        >
-          {services.map((svc) => (
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {services.map((svc, i) => (
             <motion.div
               key={svc.title}
-              variants={item}
-              className={`card-glow ${svc.color === "orange" ? "card-orange" : ""} rounded-2xl p-7 group hover:border-${svc.color === "sky" ? "sky" : "orange"}-500/30 transition-all duration-300 cursor-default ${
-                svc.featured
-                  ? "border-sky-500/40 bg-gradient-to-br from-sky-900/20 to-[#0a1628]"
-                  : ""
-              }`}
-              whileHover={{ y: -4 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
             >
-              {svc.featured && (
-                <span className="inline-block px-2.5 py-0.5 rounded-full bg-gradient-to-r from-sky-500 to-sky-600 text-white text-[11px] font-bold uppercase tracking-wider mb-4">
-                  Available 24/7
-                </span>
-              )}
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 ${
-                svc.featured
-                  ? "bg-sky-600 shadow-[0_0_20px_#0ea5e955]"
-                  : svc.color === "sky"
-                  ? "bg-sky-500/10 group-hover:bg-sky-500/20 border border-sky-500/20"
-                  : "bg-orange-500/10 group-hover:bg-orange-500/20 border border-orange-500/20"
-              }`}>
-                <svc.icon size={22} className={
-                  svc.featured ? "text-white" :
-                  svc.color === "sky" ? "text-sky-400" : "text-orange-400"
-                } />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2">{svc.title}</h3>
-              <p className="text-[#64748b] text-sm leading-relaxed mb-5">{svc.desc}</p>
-              <div className="flex flex-wrap gap-2">
-                {svc.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className={`px-2.5 py-1 rounded-full text-xs font-medium border ${
-                      svc.color === "sky"
-                        ? "bg-sky-500/[0.06] border-sky-500/[0.15] text-sky-400/80"
-                        : "bg-orange-500/[0.06] border-orange-500/[0.15] text-orange-400/80"
-                    }`}
+              <Card
+                className={cn(
+                  "h-full group transition-all duration-300 hover:-translate-y-1",
+                  svc.featured && "border-sky-500/25 bg-gradient-to-br from-sky-950/40 to-[#0a1628]",
+                  !svc.featured && "hover:border-white/10"
+                )}
+              >
+                <CardContent className="p-7 flex flex-col gap-4 h-full">
+                  {svc.featured && (
+                    <Badge variant="default" className="self-start text-[10px] py-0.5">
+                      Available 24/7
+                    </Badge>
+                  )}
+
+                  {/* Icon */}
+                  <div
+                    className={cn(
+                      "w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 border",
+                      svc.featured
+                        ? "bg-sky-500 border-sky-400/50 shadow-[0_0_24px_rgba(14,165,233,0.4)]"
+                        : svc.accent === "sky"
+                        ? "bg-sky-500/10 border-sky-500/15 group-hover:bg-sky-500/20 group-hover:border-sky-500/25"
+                        : "bg-orange-500/10 border-orange-500/15 group-hover:bg-orange-500/20 group-hover:border-orange-500/25"
+                    )}
                   >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+                    <svc.icon
+                      size={20}
+                      className={cn(
+                        svc.featured ? "text-white" :
+                        svc.accent === "sky" ? "text-sky-400" : "text-orange-400"
+                      )}
+                    />
+                  </div>
+
+                  <div className="flex-1">
+                    <h3 className="text-[15px] font-bold text-white mb-1.5">{svc.title}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{svc.desc}</p>
+                  </div>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {svc.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className={cn(
+                          "text-[10px] font-medium px-2 py-0.5 rounded-full border",
+                          svc.accent === "sky"
+                            ? "bg-sky-500/[0.07] border-sky-500/15 text-sky-400/70"
+                            : "bg-orange-500/[0.07] border-orange-500/15 text-orange-400/70"
+                        )}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        {/* CTA row */}
+        {/* Bottom CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.7, duration: 0.6 }}
-          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.65, duration: 0.5 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-12 text-sm text-slate-500"
         >
-          <div className="flex items-center gap-2 text-[#94a3b8] text-sm">
-            <ThumbsUp size={15} className="text-sky-400" />
-            Not sure what you need? Our experts will help you find the right solution.
-          </div>
-          <a
-            href="#contact"
-            className="flex items-center gap-2 text-sky-400 hover:text-sky-300 text-sm font-semibold transition-colors group"
-          >
-            Get a Free Assessment
-            <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-          </a>
+          <span>Not sure what you need?</span>
+          <Button variant="link" asChild className="p-0 h-auto">
+            <a href="#contact" className="flex items-center gap-1.5">
+              Get a free expert consultation
+              <ArrowRight size={13} />
+            </a>
+          </Button>
         </motion.div>
       </div>
     </section>

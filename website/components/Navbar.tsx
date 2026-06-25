@@ -1,21 +1,24 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Thermometer, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
 
-const links = ["Services", "About", "Why Us", "Reviews", "Contact"];
+const links = [
+  { label: "Services", href: "#services" },
+  { label: "How It Works", href: "#why-us" },
+  { label: "About Us", href: "#about" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [hovered, setHovered] = useState<string | null>(null);
-  const headerRef = useRef<HTMLElement>(null);
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, { stiffness: 120, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 120, damping: 20 });
+  const [active, setActive] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -23,119 +26,85 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    const rect = headerRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    mouseX.set(e.clientX - rect.left);
-    mouseY.set(e.clientY - rect.top);
-  };
-
   return (
     <motion.header
-      ref={headerRef}
-      onMouseMove={handleMouseMove}
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 overflow-hidden ${
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-[#050b18ee] backdrop-blur-xl border-b border-white/[0.06]"
+          ? "bg-[#050b18]/90 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_1px_0_rgba(255,255,255,0.04)]"
           : "bg-transparent"
-      }`}
+      )}
     >
-      {/* Spotlight glow */}
-      <motion.div
-        className="pointer-events-none absolute inset-0"
-        style={{ opacity: scrolled ? 0.6 : 0.3 }}
-      >
-        <motion.div
-          className="absolute inset-0"
-          style={{
-            background: "radial-gradient(300px circle, #0ea5e918 0%, transparent 70%)",
-            left: springX,
-            top: springY,
-            translateX: "-50%",
-            translateY: "-50%",
-          }}
-        />
-      </motion.div>
-
-      <div className="relative max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-5 flex items-center justify-between h-16">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 group z-10">
-          <motion.div
-            whileHover={{ scale: 1.08, rotate: -6 }}
-            transition={{ type: "spring", stiffness: 400, damping: 15 }}
-            className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-sky-700 flex items-center justify-center shadow-[0_0_16px_#0ea5e944]"
-          >
-            <Thermometer size={18} className="text-white" />
-          </motion.div>
-          <div className="flex flex-col leading-none">
-            <span className="font-extrabold text-base tracking-tight text-white">
+        <a href="#" className="flex items-center gap-2.5 group">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-400 to-sky-600 flex items-center justify-center shadow-[0_0_20px_rgba(14,165,233,0.35)] group-hover:shadow-[0_0_28px_rgba(14,165,233,0.5)] transition-shadow">
+            <Thermometer size={17} className="text-white" />
+          </div>
+          <div className="leading-none">
+            <div className="font-black text-[15px] tracking-tight text-white">
               JNC <span className="text-sky-400">Mechanical</span>
-            </span>
-            <span className="text-[10px] text-sky-400/60 font-medium tracking-widest uppercase">Services</span>
+            </div>
+            <div className="text-[9px] font-semibold tracking-[0.2em] text-sky-400/50 uppercase">
+              Services
+            </div>
           </div>
         </a>
 
-        {/* Nav links */}
-        <nav className="hidden md:flex items-center gap-1 z-10">
-          {links.map((link) => (
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-0.5">
+          {links.map((l) => (
             <a
-              key={link}
-              href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-              onMouseEnter={() => setHovered(link)}
-              onMouseLeave={() => setHovered(null)}
-              className="relative px-4 py-2 text-sm text-[#94a3b8] hover:text-white transition-colors duration-200 rounded-lg"
+              key={l.label}
+              href={l.href}
+              onMouseEnter={() => setActive(l.label)}
+              onMouseLeave={() => setActive(null)}
+              className="relative px-4 py-2 text-[13px] font-medium text-slate-400 hover:text-white transition-colors rounded-lg group"
             >
-              {hovered === link && (
+              {active === l.label && (
                 <motion.span
-                  layoutId="nav-hover"
-                  className="absolute inset-0 rounded-lg bg-white/[0.06]"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.15 }}
+                  layoutId="nav-pill"
+                  className="absolute inset-0 rounded-lg bg-white/[0.05]"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
               )}
-              <span className="relative z-10">{link}</span>
+              <span className="relative z-10">{l.label}</span>
             </a>
           ))}
         </nav>
 
-        {/* CTA */}
-        <div className="hidden md:flex items-center gap-3 z-10">
+        {/* Desktop actions */}
+        <div className="hidden lg:flex items-center gap-3">
           <a
             href="tel:+15623820518"
-            className="flex items-center gap-2 text-sky-400 text-sm font-semibold hover:text-sky-300 transition-colors"
+            className="flex items-center gap-2 text-[13px] font-semibold text-slate-300 hover:text-sky-400 transition-colors"
           >
-            <Phone size={14} />
+            <Phone size={13} className="text-sky-400" />
             (562) 382-0518
           </a>
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            className="shimmer-btn flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white text-sm font-semibold transition-all duration-200 hover:shadow-[0_0_24px_#f9731666] z-10"
-          >
-            Free Quote
-          </motion.a>
+          <Separator orientation="vertical" className="h-5" />
+          <Button variant="orange" size="sm" asChild>
+            <a href="#contact">Free Quote</a>
+          </Button>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-white p-1 z-10"
+          className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/20 transition-all"
           onClick={() => setOpen(!open)}
         >
           <AnimatePresence mode="wait">
             <motion.div
-              key={open ? "close" : "open"}
+              key={open ? "x" : "menu"}
               initial={{ rotate: -90, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.15 }}
             >
-              {open ? <X size={22} /> : <Menu size={22} />}
+              {open ? <X size={18} /> : <Menu size={18} />}
             </motion.div>
           </AnimatePresence>
         </button>
@@ -148,44 +117,34 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-[#050b18f0] backdrop-blur-xl border-b border-white/[0.06]"
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="lg:hidden overflow-hidden bg-[#050b18]/95 backdrop-blur-2xl border-b border-white/[0.06]"
           >
-            <div className="px-6 py-4 flex flex-col gap-1">
-              {links.map((link, i) => (
+            <div className="px-5 py-4 flex flex-col gap-1">
+              {links.map((l, i) => (
                 <motion.a
-                  key={link}
-                  href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
+                  key={l.label}
+                  href={l.href}
                   onClick={() => setOpen(false)}
-                  initial={{ opacity: 0, x: -12 }}
+                  initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.06 }}
-                  className="text-[#94a3b8] hover:text-white transition-colors py-2.5 px-3 rounded-lg hover:bg-white/[0.04]"
+                  transition={{ delay: i * 0.05 }}
+                  className="text-slate-400 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/[0.04] text-sm transition-all"
                 >
-                  {link}
+                  {l.label}
                 </motion.a>
               ))}
-              <motion.a
+              <Separator className="my-2" />
+              <a
                 href="tel:+15623820518"
-                onClick={() => setOpen(false)}
-                initial={{ opacity: 0, x: -12 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: links.length * 0.06 }}
-                className="mt-2 flex items-center gap-2 text-sky-400 py-2.5 px-3 font-semibold"
+                className="flex items-center gap-2 py-2 px-3 text-sky-400 font-semibold text-sm"
               >
                 <Phone size={14} />
                 (562) 382-0518
-              </motion.a>
-              <motion.a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                initial={{ opacity: 0, x: -12 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (links.length + 1) * 0.06 }}
-                className="mt-1 text-center px-5 py-2.5 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-semibold"
-              >
-                Get Free Quote
-              </motion.a>
+              </a>
+              <Button variant="orange" className="mt-1" asChild>
+                <a href="#contact" onClick={() => setOpen(false)}>Get Free Quote</a>
+              </Button>
             </div>
           </motion.div>
         )}
