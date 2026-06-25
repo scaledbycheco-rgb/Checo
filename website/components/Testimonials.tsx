@@ -84,7 +84,7 @@ export default function Testimonials() {
                   <div className="flex items-center gap-3">
                     <div
                       className="w-9 h-9 rounded-full flex items-center justify-center text-[11px] font-bold flex-shrink-0"
-                      style={{ background: t.color + "20", border: `1px solid ${t.color}35`, color: t.color }}
+                      style={{ "--avatar-color": t.color, background: "color-mix(in srgb, var(--avatar-color) 12%, transparent)", border: "1px solid color-mix(in srgb, var(--avatar-color) 22%, transparent)", color: t.color } as React.CSSProperties}
                     >
                       {t.avatar}
                     </div>
@@ -121,7 +121,7 @@ export default function Testimonials() {
                 <div className="flex items-center gap-3">
                   <div
                     className="w-9 h-9 rounded-full flex items-center justify-center text-[11px] font-bold"
-                    style={{ background: testimonials[current].color + "20", border: `1px solid ${testimonials[current].color}35`, color: testimonials[current].color }}
+                    style={{ "--avatar-color": testimonials[current].color, background: "color-mix(in srgb, var(--avatar-color) 12%, transparent)", border: "1px solid color-mix(in srgb, var(--avatar-color) 22%, transparent)", color: testimonials[current].color } as React.CSSProperties}
                   >
                     {testimonials[current].avatar}
                   </div>
@@ -134,19 +134,22 @@ export default function Testimonials() {
             </Card>
           </motion.div>
           <div className="flex items-center justify-between mt-5">
-            <Button variant="ghost" size="icon" onClick={() => { setPaused(true); setCurrent(c => (c - 1 + testimonials.length) % testimonials.length); }}>
+            <Button variant="ghost" size="icon" aria-label="Previous review" onClick={() => { setPaused(true); setCurrent(c => (c - 1 + testimonials.length) % testimonials.length); }}>
               <ChevronLeft size={18} />
             </Button>
-            <div className="flex gap-1.5">
-              {testimonials.map((_, i) => (
+            <div className="flex gap-1.5" role="tablist" aria-label="Review slides">
+              {testimonials.map((t, i) => (
                 <button
                   key={i}
+                  role="tab"
+                  aria-label={`Review by ${t.name}`}
+                  aria-selected={i === current}
                   onClick={() => { setPaused(true); setCurrent(i); }}
                   className={`h-1.5 rounded-full transition-all ${i === current ? "bg-sky-400 w-5" : "bg-white/15 w-1.5"}`}
                 />
               ))}
             </div>
-            <Button variant="ghost" size="icon" onClick={() => { setPaused(true); setCurrent(c => (c + 1) % testimonials.length); }}>
+            <Button variant="ghost" size="icon" aria-label="Next review" onClick={() => { setPaused(true); setCurrent(c => (c + 1) % testimonials.length); }}>
               <ChevronRight size={18} />
             </Button>
           </div>

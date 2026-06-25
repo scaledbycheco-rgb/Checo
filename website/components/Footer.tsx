@@ -24,11 +24,12 @@ export default function Footer() {
               Southern California&apos;s trusted HVAC experts. Licensed, insured, and committed to your comfort since 2009.
             </p>
             <div className="flex gap-2">
-              {[Share2, Camera].map((Icon, i) => (
-                <a key={i} href="#" className="w-9 h-9 rounded-xl border border-white/[0.07] flex items-center justify-center text-slate-600 hover:text-sky-400 hover:border-sky-500/25 transition-all">
-                  <Icon size={15} />
-                </a>
-              ))}
+              <a href="#" aria-label="JNC Mechanical on Facebook" className="w-9 h-9 rounded-xl border border-white/[0.07] flex items-center justify-center text-slate-600 hover:text-sky-400 hover:border-sky-500/25 transition-all" rel="noopener noreferrer">
+                <Share2 size={15} />
+              </a>
+              <a href="#" aria-label="JNC Mechanical on Instagram" className="w-9 h-9 rounded-xl border border-white/[0.07] flex items-center justify-center text-slate-600 hover:text-sky-400 hover:border-sky-500/25 transition-all" rel="noopener noreferrer">
+                <Camera size={15} />
+              </a>
             </div>
           </div>
 
