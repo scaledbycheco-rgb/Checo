@@ -12,31 +12,33 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://checomarketing.com";
+const siteUrl = "https://jncmechanicalservices.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Checo Marketing — Brand Scaling Agency",
-    template: "%s | Checo Marketing",
+    default: "JNC Mechanical Services — Expert HVAC in Southern California",
+    template: "%s | JNC Mechanical Services",
   },
   description:
-    "Checo Marketing helps ambitious founders and creators scale their brand through sharp positioning, high-converting content, and proven growth systems. 50+ brands scaled. $2M+ in client revenue generated.",
+    "JNC Mechanical Services — Southern California's #1 HVAC company. Expert AC installation, heating, ventilation & 24/7 emergency repairs. Licensed & insured. Free estimates. Serving Long Beach, Torrance, Carson & more.",
   keywords: [
-    "brand scaling agency",
-    "freelance marketing agency",
-    "brand strategy",
-    "content strategy",
-    "digital marketing",
-    "brand positioning",
-    "growth marketing",
-    "social media growth",
-    "Checo Marketing",
-    "brand consultant",
+    "HVAC Long Beach",
+    "AC repair Southern California",
+    "air conditioning installation",
+    "furnace repair",
+    "HVAC emergency service",
+    "JNC Mechanical Services",
+    "heating and cooling",
+    "AC replacement",
+    "HVAC maintenance",
+    "commercial HVAC",
+    "Torrance HVAC",
+    "Carson AC repair",
   ],
-  authors: [{ name: "Checo Marketing", url: siteUrl }],
-  creator: "Checo Marketing",
-  publisher: "Checo Marketing",
+  authors: [{ name: "JNC Mechanical Services", url: siteUrl }],
+  creator: "JNC Mechanical Services",
+  publisher: "JNC Mechanical Services",
   robots: {
     index: true,
     follow: true,
@@ -52,32 +54,28 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Checo Marketing",
-    title: "Checo Marketing — Brand Scaling Agency",
+    siteName: "JNC Mechanical Services",
+    title: "JNC Mechanical Services — Expert HVAC in Southern California",
     description:
-      "Scale your brand with proven positioning, content strategy, and growth systems. 50+ brands scaled. $2M+ in client revenue generated.",
+      "Expert HVAC services for homes and businesses. AC installation, heating, emergency repairs & more. Licensed, insured, 500+ 5-star reviews.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Checo Marketing — Brand Scaling Agency",
+        alt: "JNC Mechanical Services — Expert HVAC",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Checo Marketing — Brand Scaling Agency",
+    title: "JNC Mechanical Services — Expert HVAC in Southern California",
     description:
-      "Scale your brand with proven positioning, content strategy, and growth systems. 50+ brands scaled. $2M+ in client revenue generated.",
+      "Expert HVAC services. AC installation, heating, emergency repairs. Licensed & insured. 500+ 5-star reviews.",
     images: ["/og-image.png"],
-    creator: "@checoscale",
   },
   alternates: {
     canonical: siteUrl,
-  },
-  verification: {
-    google: "ycRAP1gcVr-CwE33rq70EH0X6xyykEpacPQ1UgJ2lLY",
   },
 };
 
