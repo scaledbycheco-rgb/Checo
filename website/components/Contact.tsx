@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ArrowRight, CheckCircle, Mail, Calendar, MessageSquare } from "lucide-react";
+import { ArrowRight, CheckCircle, Mail, Phone, MessageSquare } from "lucide-react";
 
 const perks = [
   "No long-term contracts — results or we fix it",
@@ -70,18 +70,18 @@ export default function Contact() {
             <div className="card-glow rounded-2xl p-6 flex flex-col gap-4">
               <h3 className="text-white font-semibold">Prefer to reach directly?</h3>
               <a
-                href="mailto:hello@checoscale.co"
+                href="mailto:scaledbycheco@gmail.com"
                 className="flex items-center gap-3 text-[#9090a8] hover:text-violet-400 transition-colors text-sm"
               >
                 <Mail size={15} />
-                hello@checoscale.co
+                scaledbycheco@gmail.com
               </a>
               <a
-                href="#"
+                href="tel:+15623820518"
                 className="flex items-center gap-3 text-[#9090a8] hover:text-violet-400 transition-colors text-sm"
               >
-                <Calendar size={15} />
-                Book directly on Calendly
+                <Phone size={15} />
+                (562) 382-0518
               </a>
               <a
                 href="#"

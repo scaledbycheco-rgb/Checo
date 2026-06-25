@@ -33,7 +33,7 @@ export default function Navbar() {
             <Zap size={16} className="text-white" fill="white" />
           </div>
           <span className="font-bold text-lg tracking-tight text-white">
-            Checo<span className="text-violet-400">Scale</span>
+            Checo<span className="text-violet-400">Marketing</span>
           </span>
         </a>
 

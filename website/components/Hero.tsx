@@ -32,7 +32,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-300 text-sm font-medium mb-8"
         >
           <Star size={13} fill="currentColor" />
-          <span>Freelance Brand Scaling Agency</span>
+          <span>Checo Marketing — Brand Scaling Agency</span>
         </motion.div>
 
         {/* Headline */}

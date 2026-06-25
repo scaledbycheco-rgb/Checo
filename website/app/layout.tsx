@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ChecoScale — Freelance Brand Scaling Agency",
+  title: "Checo Marketing — Brand Scaling Agency",
   description: "Scale your brand with proven positioning, content strategy, and growth systems. 50+ brands scaled. $2M+ in client revenue generated.",
 };
 
