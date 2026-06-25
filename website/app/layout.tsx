@@ -12,9 +12,73 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://checomarketing.com";
+
 export const metadata: Metadata = {
-  title: "Checo Marketing — Brand Scaling Agency",
-  description: "Scale your brand with proven positioning, content strategy, and growth systems. 50+ brands scaled. $2M+ in client revenue generated.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Checo Marketing — Brand Scaling Agency",
+    template: "%s | Checo Marketing",
+  },
+  description:
+    "Checo Marketing helps ambitious founders and creators scale their brand through sharp positioning, high-converting content, and proven growth systems. 50+ brands scaled. $2M+ in client revenue generated.",
+  keywords: [
+    "brand scaling agency",
+    "freelance marketing agency",
+    "brand strategy",
+    "content strategy",
+    "digital marketing",
+    "brand positioning",
+    "growth marketing",
+    "social media growth",
+    "Checo Marketing",
+    "brand consultant",
+  ],
+  authors: [{ name: "Checo Marketing", url: siteUrl }],
+  creator: "Checo Marketing",
+  publisher: "Checo Marketing",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Checo Marketing",
+    title: "Checo Marketing — Brand Scaling Agency",
+    description:
+      "Scale your brand with proven positioning, content strategy, and growth systems. 50+ brands scaled. $2M+ in client revenue generated.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Checo Marketing — Brand Scaling Agency",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Checo Marketing — Brand Scaling Agency",
+    description:
+      "Scale your brand with proven positioning, content strategy, and growth systems. 50+ brands scaled. $2M+ in client revenue generated.",
+    images: ["/og-image.png"],
+    creator: "@checoscale",
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  verification: {
+    google: "",
+  },
 };
 
 export default function RootLayout({
