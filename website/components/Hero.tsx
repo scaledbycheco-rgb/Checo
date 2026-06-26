@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Shield, Star, Clock, CheckCircle, ArrowRight, Thermometer } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Phone, Shield, Star, Clock, CheckCircle, ArrowRight } from "lucide-react";
+import { Marquee } from "@/components/ui/marquee";
 
 const fade = (delay = 0) => ({
   initial: { opacity: 0, y: 18 },
@@ -149,16 +148,38 @@ export default function Hero() {
             </div>
 
             {/* Brands */}
-            <div className="mt-5 flex items-center gap-2 flex-wrap">
-              <span className="text-slate-600 text-xs">Authorized service for:</span>
-              {["Carrier", "Trane", "Lennox", "Rheem", "York"].map((b) => (
-                <span key={b} className="text-xs font-bold text-slate-400 bg-white/[0.04] border border-white/[0.07] rounded-lg px-2.5 py-1">
-                  {b}
-                </span>
-              ))}
+            <div className="mt-5">
+              <p className="text-slate-600 text-xs mb-3 uppercase tracking-wider font-semibold">Authorized service for</p>
+              <div className="flex flex-wrap gap-2">
+                {["Carrier", "Trane", "Lennox", "Rheem", "York", "Daikin", "Goodman"].map((b) => (
+                  <span key={b} className="text-xs font-bold text-slate-400 bg-white/[0.04] border border-white/[0.07] rounded-lg px-3 py-1.5">
+                    {b}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
+      </div>
+
+      {/* Stats ticker strip */}
+      <div className="relative border-t border-white/[0.06] bg-[#040913]">
+        <Marquee className="py-4 [--duration:22s] [--gap:3rem]" pauseOnHover>
+          {[
+            "✦ Licensed & Insured",
+            "✦ Same-Day Service Available",
+            "✦ Flat-Rate Pricing — No Surprises",
+            "✦ 4.9★ from 500+ Reviews",
+            "✦ 24/7 Emergency Line",
+            "✦ 15+ Years Serving Southern California",
+            "✦ 5,000+ Jobs Completed",
+            "✦ 100% Satisfaction Guarantee",
+          ].map((item) => (
+            <span key={item} className="text-xs font-semibold text-slate-500 whitespace-nowrap hover:text-slate-300 transition-colors">
+              {item}
+            </span>
+          ))}
+        </Marquee>
       </div>
     </section>
   );
