@@ -4,6 +4,7 @@ import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Results from "@/components/Results";
 import Testimonials from "@/components/Testimonials";
+import VideoSection from "@/components/VideoSection";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -69,6 +70,7 @@ export default function Home() {
         <Process />
         <Results />
         <Testimonials />
+        <VideoSection />
         <Contact />
         <Footer />
       </main>
