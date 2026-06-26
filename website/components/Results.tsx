@@ -6,10 +6,10 @@ import { MapPin, Snowflake, Flame, Wind, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const stats = [
-  { value: 15, suffix: "+", label: "Years in Business", desc: "Serving SoCal since 2009" },
-  { value: 5000, suffix: "+", label: "Jobs Completed", desc: "Residential & commercial" },
-  { value: 500, suffix: "+", label: "5-Star Reviews", desc: "Verified customer ratings" },
-  { value: 100, suffix: "%", label: "Satisfaction Rate", desc: "We make it right, guaranteed" },
+  { value: 20, suffix: "+", label: "Years of Experience", desc: "Trusted expertise since day one" },
+  { value: 150, suffix: "+", label: "Customers Satisfied", desc: "Commercial & industrial clients" },
+  { value: 2, suffix: " Counties", label: "Service Area", desc: "Los Angeles & Orange County" },
+  { value: 100, suffix: "%", label: "Commitment", desc: "Precision on every project" },
 ];
 
 function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
@@ -29,18 +29,18 @@ function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
 }
 
 const recentJobs = [
-  { icon: Snowflake, type: "AC Installation", location: "Long Beach, CA", detail: "3-ton Carrier central AC. Energy bill dropped 30% in the first month.", accent: "sky" },
-  { icon: Flame, type: "Furnace Replacement", location: "Torrance, CA", detail: "High-efficiency Trane furnace. Customer saw 40% reduction in heating costs.", accent: "orange" },
-  { icon: Wrench, type: "Emergency AC Repair", location: "Carson, CA", detail: "Compressor failure diagnosed and replaced same day. Family comfortable by evening.", accent: "sky" },
-  { icon: Wind, type: "Ductwork Replacement", location: "Compton, CA", detail: "Full duct system sealed — solved hot and cold spots throughout the home.", accent: "orange" },
-  { icon: Snowflake, type: "Mini-Split Install", location: "Lakewood, CA", detail: "Ductless mini-split for new garage conversion. Perfect zone control added.", accent: "sky" },
-  { icon: Flame, type: "Heat Pump Install", location: "Bellflower, CA", detail: "Dual-fuel heat pump for heating and cooling in one ultra-efficient system.", accent: "orange" },
+  { icon: Wrench, type: "Commercial HVAC", location: "Los Angeles, CA", detail: "Full commercial HVAC installation for an office building. Optimized for energy efficiency and tenant comfort.", accent: "sky" },
+  { icon: Wind, type: "Chiller Service", location: "Orange County, CA", detail: "Expert chiller maintenance and repair for an industrial facility. System restored to full capacity.", accent: "orange" },
+  { icon: Wrench, type: "Mechanical Retrofit", location: "Los Angeles, CA", detail: "Customized mechanical retrofit that improved efficiency by 35% for a commercial warehouse.", accent: "sky" },
+  { icon: Snowflake, type: "Preventive Care", location: "Orange County, CA", detail: "Scheduled preventive maintenance program keeping a restaurant chain's HVAC running smoothly all year.", accent: "orange" },
+  { icon: Flame, type: "Industrial Installation", location: "Los Angeles, CA", detail: "Large-scale industrial HVAC installation completed on schedule and on budget.", accent: "sky" },
+  { icon: Wind, type: "Service Repair", location: "Orange County, CA", detail: "Emergency repair for a retail center's HVAC system. Back online within hours, minimizing business disruption.", accent: "orange" },
 ];
 
 const serviceAreas = [
-  "Long Beach","Torrance","Carson","Compton","Lakewood","Bellflower",
-  "Downey","Signal Hill","Wilmington","San Pedro","Hawthorne","Gardena",
-  "Paramount","Lynwood","Inglewood",
+  "Los Angeles","Orange County","Downtown LA","West LA","South Bay",
+  "San Gabriel Valley","Long Beach","Anaheim","Irvine","Santa Ana",
+  "Pasadena","Torrance","Fullerton","Garden Grove",
 ];
 
 export default function Results() {
@@ -62,7 +62,7 @@ export default function Results() {
           <p className="text-orange-400 text-sm font-bold uppercase tracking-[0.2em] mb-3">Track Record</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
             Trusted by{" "}
-            <span className="text-orange-400">Thousands of Families</span>
+            <span className="text-orange-400">Businesses Across LA &amp; OC</span>
           </h2>
         </motion.div>
 
@@ -131,7 +131,7 @@ export default function Results() {
             <MapPin size={15} className="text-sky-400" />
             <h3 className="text-white font-bold text-sm uppercase tracking-wider">Service Areas</h3>
           </div>
-          <p className="text-slate-500 text-sm mb-6">Proudly serving communities across Southern California</p>
+          <p className="text-slate-500 text-sm mb-6">Proudly serving commercial and industrial clients across Los Angeles and Orange County</p>
           <div className="flex flex-wrap gap-2">
             {serviceAreas.map((area) => (
               <span

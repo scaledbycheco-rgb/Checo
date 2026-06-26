@@ -11,12 +11,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
-const serviceTypes = ["AC Repair","AC Installation","Heating Repair","Heating Installation","Maintenance Tune-Up","Emergency Service","Commercial HVAC","Other"];
+const serviceTypes = ["Commercial HVAC","Chiller Service","Mechanical Retrofit","Preventive Maintenance","Service Repair","New Installation","Other"];
 
 const hours = [
-  { day: "Mon – Fri", hours: "7:00 AM – 8:00 PM" },
-  { day: "Saturday",  hours: "8:00 AM – 6:00 PM" },
-  { day: "Sunday",    hours: "9:00 AM – 5:00 PM" },
+  { day: "Mon – Sun", hours: "7:00 AM – 5:00 PM" },
 ];
 
 export default function Contact() {
@@ -65,9 +63,9 @@ export default function Contact() {
                 <h3 className="text-white font-bold text-sm uppercase tracking-wider">Contact</h3>
                 <Separator />
                 {[
-                  { icon: Phone, label: "Call or Text", value: "(562) 382-0518", href: "tel:+15623820518", color: "orange" },
-                  { icon: Mail,  label: "Email",        value: "info@jncmechanicalservices.com", href: "mailto:info@jncmechanicalservices.com", color: "sky" },
-                  { icon: MapPin,label: "Area",         value: "Greater Los Angeles, CA", href: null, color: "sky" },
+                  { icon: Phone, label: "Call or Text", value: "(562) 644-2129", href: "tel:+15626442129", color: "orange" },
+                  { icon: Mail,  label: "Email",        value: "JNCMechanical@yahoo.com", href: "mailto:JNCMechanical@yahoo.com", color: "sky" },
+                  { icon: MapPin,label: "Area",         value: "Los Angeles & Orange County", href: null, color: "sky" },
                 ].map(item => (
                   <div key={item.label} className="flex items-center gap-3 group">
                     <div className={cn(
@@ -115,11 +113,11 @@ export default function Contact() {
 
             {/* Emergency CTA */}
             <Button variant="orange" size="lg" asChild className="w-full">
-              <a href="tel:+15623820518">
+              <a href="tel:+15626442129">
                 <Phone size={16} />
                 <div className="flex flex-col items-start leading-none">
                   <span className="text-[10px] font-medium opacity-80">Emergency? Call now</span>
-                  <span className="text-base font-black">(562) 382-0518</span>
+                  <span className="text-base font-black">(562) 644-2129</span>
                 </div>
                 <ArrowRight size={16} className="ml-auto" />
               </a>
@@ -152,7 +150,7 @@ export default function Contact() {
                       </p>
                     </div>
                     <Button variant="orange" asChild>
-                      <a href="tel:+15623820518"><Phone size={14} />Call Now</a>
+                      <a href="tel:+15626442129"><Phone size={14} />Call Now</a>
                     </Button>
                   </div>
                 ) : (

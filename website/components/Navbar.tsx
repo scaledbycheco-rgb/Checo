@@ -2,16 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Thermometer, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
+import JncLogo from "@/components/JncLogo";
 
 const links = [
   { label: "Services", href: "#services" },
-  { label: "How It Works", href: "#why-us" },
-  { label: "About Us", href: "#about" },
+  { label: "About", href: "#about" },
   { label: "Reviews", href: "#reviews" },
+  { label: "Join Our Team", href: "#careers" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -41,15 +42,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-5 flex items-center justify-between h-16">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-400 to-sky-600 flex items-center justify-center shadow-[0_0_20px_rgba(14,165,233,0.35)] group-hover:shadow-[0_0_28px_rgba(14,165,233,0.5)] transition-shadow">
-            <Thermometer size={17} className="text-white" />
-          </div>
+          <JncLogo size={40} />
           <div className="leading-none">
             <div className="font-black text-[15px] tracking-tight text-white">
-              JNC <span className="text-sky-400">Mechanical</span>
+              JNC <span className="text-orange-400">Mechanical</span>
             </div>
-            <div className="text-[9px] font-semibold tracking-[0.2em] text-sky-400/50 uppercase">
-              Services
+            <div className="text-[9px] font-semibold tracking-[0.2em] text-cyan-400/60 uppercase">
+              Services Inc.
             </div>
           </div>
         </a>
@@ -79,11 +78,11 @@ export default function Navbar() {
         {/* Desktop actions */}
         <div className="hidden lg:flex items-center gap-3">
           <a
-            href="tel:+15623820518"
+            href="tel:+15626442129"
             className="flex items-center gap-2 text-[13px] font-semibold text-slate-300 hover:text-sky-400 transition-colors"
           >
             <Phone size={13} className="text-sky-400" />
-            (562) 382-0518
+            (562) 644-2129
           </a>
           <Separator orientation="vertical" className="h-5" />
           <Button variant="orange" size="sm" asChild>
@@ -140,11 +139,11 @@ export default function Navbar() {
               ))}
               <Separator className="my-2" />
               <a
-                href="tel:+15623820518"
+                href="tel:+15626442129"
                 className="flex items-center gap-2 py-2 px-3 text-sky-400 font-semibold text-sm"
               >
                 <Phone size={14} />
-                (562) 382-0518
+                (562) 644-2129
               </a>
               <Button variant="orange" className="mt-1" asChild>
                 <a href="#contact" onClick={() => setOpen(false)}>Get Free Quote</a>

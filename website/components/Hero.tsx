@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Phone, Shield, Star, Clock, CheckCircle, ArrowRight } from "lucide-react";
 import { Marquee } from "@/components/ui/marquee";
+import JncLogo from "@/components/JncLogo";
 
 const fade = (delay = 0) => ({
   initial: { opacity: 0, y: 18 },
@@ -25,32 +26,32 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left — copy */}
           <div className="flex flex-col gap-7">
-            <motion.div {...fade(0)}>
-              <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.18em] uppercase text-sky-400 border border-sky-500/25 bg-sky-500/[0.07] rounded-full px-4 py-1.5">
+            <motion.div {...fade(0)} className="flex items-center gap-3">
+              <JncLogo size={48} />
+              <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.18em] uppercase text-cyan-400 border border-cyan-500/25 bg-cyan-500/[0.07] rounded-full px-4 py-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                Serving Southern California Since 2009
+                20+ Years Serving LA &amp; Orange County
               </span>
             </motion.div>
 
             <motion.h1 {...fade(0.08)} className="text-4xl sm:text-5xl xl:text-6xl font-black leading-[1.08] tracking-tight text-white">
-              Southern California&apos;s{" "}
-              <span className="text-sky-400">Most Trusted</span>{" "}
+              Trusted HVAC{" "}
+              <span className="text-orange-400">Solutions</span>{" "}
               <br className="hidden sm:block" />
-              HVAC Company
+              <span className="text-cyan-400">for You</span>
             </motion.h1>
 
             <motion.p {...fade(0.16)} className="text-lg text-slate-300 leading-relaxed max-w-lg">
-              Licensed, insured HVAC technicians serving Long Beach, Torrance, Carson & the greater LA area.
-              Same-day service. Flat-rate pricing. 100% satisfaction guaranteed.
+              At JNC Mechanical Service Inc., we bring decades of hands-on experience serving Los Angeles and Orange County with top-tier commercial and industrial HVAC solutions.
             </motion.p>
 
             <motion.div {...fade(0.22)} className="flex flex-col sm:flex-row gap-3">
               <a
-                href="tel:+15623820518"
+                href="tel:+15626442129"
                 className="inline-flex items-center justify-center gap-2.5 h-14 px-7 rounded-xl bg-orange-500 hover:bg-orange-400 text-white font-bold text-base transition-all shadow-[0_4px_24px_rgba(249,115,22,0.35)] hover:shadow-[0_4px_32px_rgba(249,115,22,0.5)] active:scale-[0.98]"
               >
                 <Phone size={17} />
-                (562) 382-0518
+                (562) 644-2129
               </a>
               <a
                 href="#contact"
@@ -63,10 +64,10 @@ export default function Hero() {
 
             <motion.div {...fade(0.3)} className="flex flex-wrap gap-x-6 gap-y-3">
               {[
-                { icon: Shield, label: "Licensed & Insured", color: "text-sky-400" },
-                { icon: Star, label: "4.9★ — 500+ Reviews", color: "text-amber-400" },
-                { icon: Clock, label: "Same-Day Available", color: "text-sky-400" },
-                { icon: CheckCircle, label: "Satisfaction Guarantee", color: "text-green-400" },
+                { icon: Shield, label: "Licensed & Insured", color: "text-cyan-400" },
+                { icon: Star, label: "150+ Satisfied Customers", color: "text-amber-400" },
+                { icon: Clock, label: "Mon–Sun 7am–5pm", color: "text-cyan-400" },
+                { icon: CheckCircle, label: "Commercial & Industrial", color: "text-green-400" },
               ].map((t) => (
                 <span key={t.label} className="flex items-center gap-1.5 text-sm text-slate-300">
                   <t.icon size={13} className={t.color} />
@@ -90,13 +91,13 @@ export default function Hero() {
               </div>
 
               <div className="p-7 flex flex-col gap-5">
-                <a href="tel:+15623820518" className="flex items-center gap-4 group">
+                <a href="tel:+15626442129" className="flex items-center gap-4 group">
                   <div className="w-12 h-12 rounded-xl bg-orange-500/15 border border-orange-500/25 flex items-center justify-center flex-shrink-0 group-hover:bg-orange-500/25 transition-colors">
                     <Phone size={19} className="text-orange-400" />
                   </div>
                   <div>
                     <p className="text-slate-400 text-xs uppercase tracking-wider font-semibold">Call or Text</p>
-                    <p className="text-white text-xl font-black group-hover:text-orange-400 transition-colors">(562) 382-0518</p>
+                    <p className="text-white text-xl font-black group-hover:text-orange-400 transition-colors">(562) 644-2129</p>
                   </div>
                 </a>
 
@@ -104,31 +105,23 @@ export default function Hero() {
 
                 <div className="flex flex-col gap-3">
                   <div className="flex justify-between items-center text-sm">
-                    <span className="text-slate-400">Mon – Fri</span>
-                    <span className="text-white font-semibold">7:00 AM – 8:00 PM</span>
-                  </div>
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="text-slate-400">Saturday</span>
-                    <span className="text-white font-semibold">8:00 AM – 6:00 PM</span>
-                  </div>
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="text-slate-400">Sunday</span>
-                    <span className="text-white font-semibold">9:00 AM – 5:00 PM</span>
+                    <span className="text-slate-400">Mon – Sun</span>
+                    <span className="text-white font-semibold">7:00 AM – 5:00 PM</span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 bg-green-500/[0.08] border border-green-500/20 rounded-xl px-4 py-3">
-                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
-                  <span className="text-green-400 text-sm font-semibold">24/7 Emergency Line Always Open</span>
+                <div className="flex items-center gap-2 bg-cyan-500/[0.08] border border-cyan-500/20 rounded-xl px-4 py-3">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse flex-shrink-0" />
+                  <span className="text-cyan-400 text-sm font-semibold">Serving LA &amp; Orange County</span>
                 </div>
 
                 <div className="border-t border-white/[0.07]" />
 
                 <div className="grid grid-cols-3 gap-3 text-center">
                   {[
-                    { val: "15+", label: "Yrs Exp." },
-                    { val: "5K+", label: "Jobs Done" },
-                    { val: "4.9★", label: "Rating" },
+                    { val: "20+", label: "Yrs Exp." },
+                    { val: "150+", label: "Customers" },
+                    { val: "LA+OC", label: "Service Area" },
                   ].map((s) => (
                     <div key={s.label} className="bg-white/[0.03] rounded-xl py-3 border border-white/[0.06]">
                       <p className="text-white text-lg font-black">{s.val}</p>
@@ -149,9 +142,9 @@ export default function Hero() {
 
             {/* Brands */}
             <div className="mt-5">
-              <p className="text-slate-600 text-xs mb-3 uppercase tracking-wider font-semibold">Authorized service for</p>
+              <p className="text-slate-600 text-xs mb-3 uppercase tracking-wider font-semibold">Specializations</p>
               <div className="flex flex-wrap gap-2">
-                {["Carrier", "Trane", "Lennox", "Rheem", "York", "Daikin", "Goodman"].map((b) => (
+                {["Commercial", "Industrial", "Chiller Service", "Retrofits", "Preventive Care"].map((b) => (
                   <span key={b} className="text-xs font-bold text-slate-400 bg-white/[0.04] border border-white/[0.07] rounded-lg px-3 py-1.5">
                     {b}
                   </span>
@@ -167,13 +160,13 @@ export default function Hero() {
         <Marquee className="py-4 [--duration:22s] [--gap:3rem]" pauseOnHover>
           {[
             "✦ Licensed & Insured",
-            "✦ Same-Day Service Available",
-            "✦ Flat-Rate Pricing — No Surprises",
-            "✦ 4.9★ from 500+ Reviews",
-            "✦ 24/7 Emergency Line",
-            "✦ 15+ Years Serving Southern California",
-            "✦ 5,000+ Jobs Completed",
-            "✦ 100% Satisfaction Guarantee",
+            "✦ Commercial HVAC Specialists",
+            "✦ Industrial HVAC Solutions",
+            "✦ Chiller Service & Repairs",
+            "✦ Mechanical Retrofits",
+            "✦ 20+ Years Serving LA & Orange County",
+            "✦ 150+ Satisfied Customers",
+            "✦ Preventive Maintenance Programs",
           ].map((item) => (
             <span key={item} className="text-xs font-semibold text-slate-500 whitespace-nowrap hover:text-slate-300 transition-colors">
               {item}

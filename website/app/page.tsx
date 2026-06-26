@@ -16,28 +16,20 @@ const jsonLd = {
       "@id": "https://jncmechanicalservices.com/#business",
       name: "JNC Mechanical Services",
       description:
-        "JNC Mechanical Services is Southern California's trusted HVAC company offering AC installation, heating, ventilation, repairs, and 24/7 emergency service for residential and commercial clients.",
+        "JNC Mechanical Service Inc. provides top-tier commercial and industrial HVAC solutions serving Los Angeles and Orange County. Specializing in commercial HVAC, chiller service, mechanical retrofits, preventive care, and installation.",
       url: "https://jncmechanicalservices.com",
-      telephone: "+15623820518",
-      email: "info@jncmechanicalservices.com",
+      telephone: "+15626442129",
+      email: "JNCMechanical@yahoo.com",
       priceRange: "$$",
       areaServed: [
-        "Long Beach", "Torrance", "Carson", "Compton", "Lakewood",
-        "Bellflower", "Downey", "Signal Hill", "Los Angeles",
+        "Los Angeles", "Orange County", "Greater Los Angeles Area",
       ],
       serviceType: [
-        "AC Installation", "AC Repair", "Heating Installation", "Furnace Repair",
-        "HVAC Maintenance", "Emergency HVAC Service", "Commercial HVAC", "Indoor Air Quality",
+        "Commercial HVAC", "Chiller Service", "Mechanical Retrofits",
+        "Preventive Maintenance", "Service Repair", "HVAC Installation",
       ],
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "500",
-      },
       openingHoursSpecification: [
-        { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "07:00", closes: "20:00" },
-        { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "08:00", closes: "18:00" },
-        { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "09:00", closes: "17:00" },
+        { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], opens: "07:00", closes: "17:00" },
       ],
     },
     {

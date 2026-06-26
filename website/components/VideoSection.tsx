@@ -5,10 +5,10 @@ import { useRef, useState } from "react";
 import { Play, CheckCircle, Phone, ArrowRight } from "lucide-react";
 
 const highlights = [
-  "Serving Southern California since 2009",
-  "Licensed, EPA certified technicians",
-  "Same-day service, flat-rate pricing",
-  "100% satisfaction — or we come back free",
+  "Commercial & industrial HVAC specialists",
+  "Decades of hands-on experience",
+  "Serving Los Angeles and Orange County",
+  "Precision and commitment on every project",
 ];
 
 export default function VideoSection() {
@@ -103,8 +103,8 @@ export default function VideoSection() {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="absolute -bottom-5 -right-4 bg-[#0a1628] border border-white/10 rounded-xl px-5 py-3.5 shadow-xl hidden sm:block"
             >
-              <p className="text-2xl font-black text-white leading-none">5,000+</p>
-              <p className="text-slate-500 text-xs mt-0.5 font-medium">Jobs Completed</p>
+              <p className="text-2xl font-black text-white leading-none">150+</p>
+              <p className="text-slate-500 text-xs mt-0.5 font-medium">Satisfied Clients</p>
             </motion.div>
 
             <motion.div
@@ -113,7 +113,7 @@ export default function VideoSection() {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="absolute -top-4 -left-4 bg-orange-500 rounded-xl px-4 py-3 shadow-xl hidden sm:block"
             >
-              <p className="text-xl font-black text-white leading-none">15+</p>
+              <p className="text-xl font-black text-white leading-none">20+</p>
               <p className="text-orange-100 text-xs mt-0.5 font-medium">Years Experience</p>
             </motion.div>
           </motion.div>
@@ -128,13 +128,13 @@ export default function VideoSection() {
             <div>
               <p className="text-sky-400 text-sm font-bold uppercase tracking-[0.2em] mb-3">About JNC Mechanical</p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
-                Real Technicians.{" "}
-                <span className="text-sky-400">Real Results.</span>
+                Trusted HVAC Experts{" "}
+                <span className="text-cyan-400">Since Day One.</span>
               </h2>
             </div>
 
             <p className="text-slate-300 text-base leading-relaxed">
-              JNC Mechanical isn&apos;t a call center — it&apos;s a family-owned HVAC company built on the belief that every customer deserves honest pricing, skilled technicians, and work that&apos;s done right the first time.
+              At JNC Mechanical Service Inc., we bring decades of hands-on experience serving Los Angeles and Orange County with top-tier commercial and industrial HVAC solutions. From energy management to mechanical retrofits, we handle every project with precision and a commitment to keeping your systems running smoothly.
             </p>
 
             <ul className="flex flex-col gap-3.5">
@@ -156,11 +156,11 @@ export default function VideoSection() {
 
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <a
-                href="tel:+15623820518"
+                href="tel:+15626442129"
                 className="inline-flex items-center justify-center gap-2.5 h-13 px-6 rounded-xl bg-orange-500 hover:bg-orange-400 text-white font-bold transition-all shadow-[0_4px_20px_rgba(249,115,22,0.3)]"
               >
                 <Phone size={15} />
-                (562) 382-0518
+                (562) 644-2129
               </a>
               <a
                 href="#contact"
