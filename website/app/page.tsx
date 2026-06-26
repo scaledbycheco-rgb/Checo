@@ -1,11 +1,13 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Process from "@/components/Process";
-import Results from "@/components/Results";
-import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+
+const Services = dynamic(() => import("@/components/Services"));
+const Process = dynamic(() => import("@/components/Process"));
+const Results = dynamic(() => import("@/components/Results"));
+const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const Contact = dynamic(() => import("@/components/Contact"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -51,7 +53,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="min-h-screen">
+      <main id="main-content" className="min-h-screen">
         <Navbar />
         <Hero />
         <Services />

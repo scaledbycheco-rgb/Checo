@@ -125,6 +125,9 @@ export default function Navbar() {
         <button
           className="md:hidden text-white p-1 z-10"
           onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -148,6 +151,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
+            id="mobile-menu"
             className="md:hidden overflow-hidden bg-[#08080cf0] backdrop-blur-xl border-b border-white/[0.06]"
           >
             <div className="px-6 py-4 flex flex-col gap-1">
